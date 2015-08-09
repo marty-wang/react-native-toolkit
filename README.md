@@ -1,3 +1,3 @@
 # React Native Toolkit
 
-Stay tuned!
+Stay tuned! :)
