@@ -1,0 +1,16 @@
+{
+  "name": "react-native-toolkit",
+  "version": "0.0.2",
+  "description": "A collection of common UI components for react native mobile apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "author": "Mo Wang",
+  "license": "MIT"
+}
