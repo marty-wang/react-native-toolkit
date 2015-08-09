@@ -1,6 +1,6 @@
 {
   "name": "react-native-toolkit",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A collection of common UI components for react native mobile apps.",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,10 @@
     "ios",
     "android"
   ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/marty-wang/react-native-toolkit.git"
+  },
   "author": "Mo Wang",
   "license": "MIT"
 }
