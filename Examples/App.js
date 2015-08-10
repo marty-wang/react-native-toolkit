@@ -15,6 +15,7 @@ var {
 
 var ExampleList = require('./components/ExampleList');
 var NavBarButton = require('./components/NavBarButton');
+var ExampleTitle = require('./components/ExampleTitle');
 
 class App extends React.Component {
 
@@ -26,13 +27,15 @@ class App extends React.Component {
                     renderScene={this._renderScene}
                     initialRoute={{
                         component: ExampleList,
-                        title: 'Examples',
                         leftButton: {
                             component: NavBarButton,
                             passProps: {
                                 icon: 'bars',
                                 onPress: this._onMenuPressed.bind(this)
                             }
+                        },
+                        customTitle: {
+                            component: ExampleTitle
                         }
                     }} />
             </View>

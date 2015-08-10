@@ -58,7 +58,7 @@ class CrossFade extends React.Component {
 
     start() {
         var state = this.state;
-        var duration = this.props.duration || 500;
+        var duration = this.props.duration || 250;
 
         var createAnimation = (property, toValue) => {
             return Animated.timing(
