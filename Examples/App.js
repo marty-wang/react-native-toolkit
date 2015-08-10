@@ -14,7 +14,7 @@ var {
 } = Toolkit;
 
 var ExampleList = require('./components/ExampleList');
-var MenuButton = require('./components/MenuButton');
+var NavBarButton = require('./components/NavBarButton');
 
 class App extends React.Component {
 
@@ -28,8 +28,9 @@ class App extends React.Component {
                         component: ExampleList,
                         title: 'Examples',
                         leftButton: {
-                            component: MenuButton,
+                            component: NavBarButton,
                             passProps: {
+                                icon: 'bars',
                                 onPress: this._onMenuPressed.bind(this)
                             }
                         }

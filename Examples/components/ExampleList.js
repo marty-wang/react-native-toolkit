@@ -11,6 +11,7 @@ var {
 } = React;
 
 var EmptyView = require('./EmptyView');
+var NavBarButton = require('./NavBarButton');
 
 class ExampleList extends React.Component {
 
@@ -57,6 +58,12 @@ class ExampleList extends React.Component {
                 message: "hello world"
             },
             title: "This is a very very very long title that will be truncated!",
+            rightButton: {
+                component: NavBarButton,
+                passProps: {
+                    icon: 'plus'
+                }
+            }
         });
     }
 

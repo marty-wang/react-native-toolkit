@@ -10,7 +10,7 @@ var {
 
 var Icon = require('react-native-vector-icons/FontAwesome');
 
-class MenuButton extends React.Component {
+class NavBarButton extends React.Component {
 
     render() {
         var self = this;
@@ -18,7 +18,7 @@ class MenuButton extends React.Component {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={self.props.onPress}>
-                    <Icon name="bars" size={22} style={styles.icon}/>
+                    <Icon name={this.props.icon} size={22} style={styles.icon}/>
                 </TouchableOpacity>
             </View>
         );
@@ -40,4 +40,4 @@ var styles = StyleSheet.create({
 
 });
 
-module.exports = MenuButton;
+module.exports = NavBarButton;

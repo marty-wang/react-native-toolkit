@@ -274,7 +274,7 @@ var styles = StyleSheet.create({
     },
 
     backArrow: {
-        fontSize: 24,
+        fontSize: 22,
         paddingTop: 6,
         paddingBottom: 6,
         paddingLeft: 10,
