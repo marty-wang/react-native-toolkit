@@ -15,6 +15,9 @@
     "type" : "git",
     "url" : "https://github.com/marty-wang/react-native-toolkit.git"
   },
+  "bugs": {
+    "url": "https://github.com/marty-wang/react-native-toolkit/issues"
+  },
   "author": "Mo Wang",
   "license": "MIT"
 }
