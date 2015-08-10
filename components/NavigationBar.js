@@ -127,7 +127,7 @@ class NavigationBar extends React.Component {
                     { <CrossFade ref="middleCrossFade" frontElement={elements.middle} backElement={prevElements.middle} /> }
                 </View>
                 <View style={styles.right}>
-                    { elements.right }
+                    { <CrossFade ref="rightCrossFade" frontElement={elements.right} backElement={prevElements.right} /> }
                 </View>
             </View>
         );
@@ -214,6 +214,7 @@ class NavigationBar extends React.Component {
 
         this.refs.leftCrossFade.start();
         this.refs.middleCrossFade.start();
+        this.refs.rightCrossFade.start();
     }
 
     _onDidFocus(event) {
