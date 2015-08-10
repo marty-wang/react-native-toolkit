@@ -2,20 +2,20 @@
 
 var React = require('react-native');
 var {
-	StyleSheet,
-	Text,
-	View,
+    StyleSheet,
+    Text,
+    View,
 } = React;
 
 class EmptyView extends React.Component {
 
-	render() {
-		return (
-			<View style={{flex: 1, paddingTop: 64, backgroundColor: "#eeeeee"}}>
-				<Text>{ this.props.message }</Text>
-			</View>
-		);
-	}
+    render() {
+        return (
+            <View style={{flex: 1, paddingTop: 64, backgroundColor: "#eeeeee"}}>
+                <Text>{ this.props.message }</Text>
+            </View>
+        );
+    }
 
 }
 
