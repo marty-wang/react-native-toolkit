@@ -13,7 +13,7 @@ class BackButton extends React.Component {
 
     render() {
         var self = this;
-        const backArrow = "❮";
+        var backArrow = "❮";
 
         return (
             <View style={styles.backButton}>

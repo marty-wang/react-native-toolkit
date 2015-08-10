@@ -13,7 +13,8 @@ var {
     NavigationBar,
 } = Toolkit;
 
-var ExampleList = require('./components/ExampleList.js');
+var ExampleList = require('./components/ExampleList');
+var MenuButton = require('./components/MenuButton');
 
 class App extends React.Component {
 
@@ -25,7 +26,13 @@ class App extends React.Component {
                     renderScene={this._renderScene}
                     initialRoute={{
                         component: ExampleList,
-                        title: 'Examples'
+                        title: 'Examples',
+                        leftButton: {
+                            component: MenuButton,
+                            passProps: {
+                                onPress: this._onMenuPressed.bind(this)
+                            }
+                        }
                     }} />
             </View>
         );
@@ -34,6 +41,10 @@ class App extends React.Component {
     _renderScene(route, navigator) {
         var props = Object.assign({}, { navigator: navigator }, route.passProps);
         return React.createElement(route.component, props);
+    }
+
+    _onMenuPressed() {
+        alert("Menu pressed!");
     }
 
 }

@@ -10,7 +10,7 @@ var {
     PixelRatio,
 } = React;
 
-var EmptyView = require('./EmptyView.js');
+var EmptyView = require('./EmptyView');
 
 class ExampleList extends React.Component {
 
