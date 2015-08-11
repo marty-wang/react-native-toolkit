@@ -13,6 +13,9 @@ var {
 var EmptyView = require('./EmptyView');
 var NavBarButton = require('./NavBarButton');
 
+var TwitterTitle = require('./twitter/Title');
+var TwitterScene = require('./twitter/Scene');
+
 class ExampleList extends React.Component {
 
     constructor(props) {
@@ -20,8 +23,16 @@ class ExampleList extends React.Component {
 
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
+        var items = [{
+            id: 'twitter',
+            label: 'Twitter style navigation bar',
+        }, {
+            id: 'more',
+            label: 'More to come...'
+        }];
+
         this.state = {
-            dataSource: ds.cloneWithRows(['<NavigationBar>', 'More to come...']),
+            dataSource: ds.cloneWithRows(items),
         };
     }
 
@@ -43,7 +54,7 @@ class ExampleList extends React.Component {
             <View style={styles.rowContainer}>
                 <TouchableHighlight onPress={self._onRowPressed.bind(self, rowData)}>
                     <View style={styles.row}>
-                        <Text style={styles.rowTitleText}>{rowData}</Text>
+                        <Text style={styles.rowTitleText}>{rowData.label}</Text>
                     </View>
                 </TouchableHighlight>
                 <View style={styles.separator} />
@@ -52,19 +63,49 @@ class ExampleList extends React.Component {
     }
 
     _onRowPressed(rowData) {
-        this.props.navigator.push({
-            component: EmptyView,
-            passProps: {
-                message: "hello world"
-            },
-            title: "This is a very very very long title that will be truncated!",
-            rightButton: {
-                component: NavBarButton,
-                passProps: {
-                    icon: 'plus'
-                }
-            }
-        });
+        var route;
+
+        switch(rowData.id) {
+            case 'twitter':
+                route = {
+                    statusBarStyle: 'light-content',
+                    component: TwitterScene,
+                    passProps: {
+                        message: rowData.label
+                    },
+                    customTitle: {
+                        component: TwitterTitle,
+                        passProps: {
+                            text: 'Home'
+                        }
+                    },
+                    barStyle: {
+                        backgroundColor: '#60B5F0'
+                    },
+                    titleStyle: {
+                        color: 'white',
+                        fontSize: 22,
+                    },
+                    leftButton: {
+                        component: NavBarButton,
+                        passProps: {
+                            icon: 'awesome|user-plus',
+                            color: 'white',
+
+                        }
+                    },
+                    rightButton: {
+                        component: NavBarButton,
+                        passProps: {
+                            icon: 'awesome|pencil',
+                            color: 'white',
+                        }
+                    }
+                };
+                break;
+        }
+
+        route && this.props.navigator.push(route);
     }
 
 }

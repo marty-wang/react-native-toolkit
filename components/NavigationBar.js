@@ -7,6 +7,7 @@ var {
     TouchableOpacity,
     View,
     Animated,
+    StatusBarIOS,
 } = React;
 
 class BackButton extends React.Component {
@@ -58,7 +59,7 @@ class CrossFade extends React.Component {
 
     start() {
         var state = this.state;
-        var duration = this.props.duration || 250;
+        var duration = this.props.duration || 300;
 
         var createAnimation = (property, toValue) => {
             return Animated.timing(
@@ -118,6 +119,9 @@ var navBarDefaultProps = {};
 // leftButton: { component: React.PropTypes.element, passProps: React.PropTypes.object }
 // rightButton: { component: React.PropTypes.element, passProps: React.PropTypes.object }
 // backButton: { component: React.PropTypes.element, passProps: React.PropTypes.object }
+// barStyle: React.PropTypes.object
+// titleStyle: React.PropTypes.object
+// statusBarStyle: React.PropTypes.string
 
 class NavigationBar extends React.Component {
 
@@ -135,7 +139,7 @@ class NavigationBar extends React.Component {
         var prevElements = this._createElements(this.state.prevRoute);
 
         return (
-            <View style={[styles.container, this.props.barStyle]}>
+            <View style={[styles.container, this.props.barStyle, this.state.route && this.state.route.barStyle]}>
                 <View style={styles.left}>
                     { <CrossFade ref="leftCrossFade" frontElement={elements.left} backElement={prevElements.left} /> }
                 </View>
@@ -179,7 +183,7 @@ class NavigationBar extends React.Component {
         } else if (canBack) {
             let backButton = {
                 component: BackButton,
-                passProps: { color: this.props.backButtonColor || (this.props.titleStyle && this.props.titleStyle.color) }
+                passProps: { color: this.props.backButtonColor || (this.props.titleStyle && this.props.titleStyle.color) || (route.titleStyle && route.titleStyle.color) }
             };
             return this._createCustomElement(route.customBackButton || backButton);
         } else {
@@ -195,7 +199,7 @@ class NavigationBar extends React.Component {
         } else {
             return (
                 <View>
-                    <Text style={[styles.title, this.props.titleStyle]} numberOfLines={1}>
+                    <Text style={[styles.title, this.props.titleStyle, route.titleStyle]} numberOfLines={1}>
                         { route.title }
                     </Text>
                 </View>
@@ -223,8 +227,14 @@ class NavigationBar extends React.Component {
     _onWillFocus(event) {
         this._onWillFocusCalled = true;
 
+        var route = event.data.route;
+
+        if (route && route.statusBarStyle) {
+            StatusBarIOS.setStyle(route.statusBarStyle);
+        }
+
         this.setState({
-            route: event.data.route,
+            route: route,
             prevRoute: this.state.route
         });
 
@@ -238,8 +248,14 @@ class NavigationBar extends React.Component {
             return;
         }
 
+        var route = event.data.route;
+
+        if (route && route.statusBarStyle) {
+            StatusBarIOS.setStyle(route.statusBarStyle);
+        }
+
         this.setState({
-            route: event.data.route
+            route: route
         });
     }
 

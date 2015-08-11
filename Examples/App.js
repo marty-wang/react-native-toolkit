@@ -26,11 +26,12 @@ class App extends React.Component {
                     navigationBar={<NavigationBar />}
                     renderScene={this._renderScene}
                     initialRoute={{
+                        statusBarStyle: 'default',
                         component: ExampleList,
                         leftButton: {
                             component: NavBarButton,
                             passProps: {
-                                icon: 'bars',
+                                icon: 'awesome|bars',
                                 onPress: this._onMenuPressed.bind(this)
                             }
                         },
