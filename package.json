@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "react-component",
+    "react",
     "react-native",
     "ios",
-    "android"
+    "android",
+    "navigator",
+    "navigationbar",
+    "navigation-bar",
+    "navbar",
+    "navigation",
+    "router"
   ],
   "repository" : {
     "type" : "git",
