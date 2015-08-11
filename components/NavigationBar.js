@@ -103,6 +103,22 @@ class CrossFade extends React.Component {
 
 }
 
+var navBarPropTypes = {
+    barStyle: React.PropTypes.object, // any css style valid for View
+    titleStyle: React.PropTypes.object, // any css style valid for Text
+    backButtonColor: React.PropTypes.string,
+};
+
+var navBarDefaultProps = {};
+
+// route props types
+//
+// title: React.PropTypes.string
+// customTitle: { component: React.PropTypes.element, passProps: React.PropTypes.object }
+// leftButton: { component: React.PropTypes.element, passProps: React.PropTypes.object }
+// rightButton: { component: React.PropTypes.element, passProps: React.PropTypes.object }
+// backButton: { component: React.PropTypes.element, passProps: React.PropTypes.object }
+
 class NavigationBar extends React.Component {
 
     constructor(props) {
@@ -228,6 +244,10 @@ class NavigationBar extends React.Component {
     }
 
 }
+
+NavigationBar.propTypes = navBarPropTypes;
+
+NavigationBar.defaultProps = navBarDefaultProps;
 
 var styles = StyleSheet.create({
 
