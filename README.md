@@ -6,6 +6,8 @@ Feel adventurous? Check out examples and get started! :)
 
 ## Navigation bar
 
+![Twitter style navigation bar](https://raw.githubusercontent.com/marty-wang/react-native-toolkit/master/Examples/Screenshots/twitter-navbar.gif)
+
 * Custom navigation bar style per scene, including text color, background color, bottom border, shadow and etc
 
 * Custom title, left, right and back components of the navigation bar per scene"
@@ -34,5 +36,3 @@ Feel adventurous? Check out examples and get started! :)
     statusBarStyle: React.PropTypes.string,
 }
 ```
-
-![Twitter style navigation bar](https://raw.githubusercontent.com/marty-wang/react-native-toolkit/master/Examples/Screenshots/twitter-navbar.gif)
